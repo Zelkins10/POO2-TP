@@ -1,0 +1,4 @@
+word
+home
+tree
+flowers
