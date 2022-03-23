@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/src/guessTheNumber.hpp
+iostream
+-
+random
+-
+
+/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/src/main.cpp
+guessTheNumber.hpp
+/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/src/guessTheNumber.hpp
+fstream
+-
+sstream
+-
+string
+-
+random
+-
+iostream
+-
+vector
+-
+experimental/filesystem
+-
+

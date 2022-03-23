@@ -15,14 +15,6 @@
 int getNumberOfWordsInDict(std::ifstream& dictionaryTxtFile){
     int wordCount = 0;
     std::string line;
-
-    //std::cout << "chemin courant est : " << std::experimental::filesystem::current_path() << std::endl; // DEBUG
-    /*
-    if(myDictionaryTxtFile.is_open()){ // DEBUG
-        std::cout << "le fichier fakeDictionary.txt est ouvert" << std::endl;
-    }
-    */
-    
     
     while(std::getline(dictionaryTxtFile, line)){
         wordCount++;
@@ -61,10 +53,7 @@ int main(){
 
     // HANGMAN
 
-    //std::ifstream dictionaryTxtFile; // v2 [old]
-    //dictionaryTxtFile.open("../assets/engmix.txt"); // v2 [old]
-
-    // Lecture du dictionnaire
+    // Lecture du dictionnaire (ancienne version de l'ouverture : cf commit sur git)
     std::ifstream myDictionaryTxtFile("./assets/engmix.txt");
 
     // Récupération du nb de mots dans le dictionnaire
@@ -88,6 +77,9 @@ int main(){
     int nbOfLives = 8;
     
     // BOUCLE PRINCIPALE DU JEU
+
+    std::cout << "--- Hangman game ---" << std::endl;
+
     while(nbOfLives > 0){
         std::cout << "You have " << nbOfLives << " lives." << std::endl;
 
