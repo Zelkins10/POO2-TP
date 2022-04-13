@@ -1,6 +1,6 @@
-# Simple-Cpp-Setup
+# Object-Oriented Programming 2 - Practical Work
 
-Welcome to this minimalist C++ project!
+C++ project based on Simple-Cpp-Setup
 
 ## If you use the Dev Container
 
