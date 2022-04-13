@@ -1,13 +1,14 @@
 #include <iostream>
-#include <random>    
+#include <random>
+
+#include "rand.hpp"
     
 void guessTheNumberGame(){
     // GUESS THE NUMBER
     std::cout << "--- Guess the number game ---" << std::endl;
 
-    std::random_device generator;
-    std::uniform_int_distribution<int> distribution(0, 100);
-    int randIntToGuess = distribution(generator);
+    const int GAME_MAX_NUMBER = 100;
+    int randIntToGuess = randInt(GAME_MAX_NUMBER);
 
     int userGuess = 101;
 

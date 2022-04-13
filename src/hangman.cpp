@@ -1,5 +1,7 @@
 #include "hangman.hpp"
 
+#include "rand.hpp"
+
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -16,6 +18,10 @@ int getNumberOfWordsInDict(std::ifstream& dictionaryTxtFile){
         wordCount++;
     }
     
+    // Réinitialisation des flags eof et fail pour la lecture du dictionnaire
+    dictionaryTxtFile.clear();
+    dictionaryTxtFile.seekg(0);
+
     return wordCount; 
 }
 
@@ -25,16 +31,13 @@ std::string getRandomWordInDict(std::ifstream& dictionaryTxtFile, int nbOfWords)
     int wordCount = 0;
 
     // Obtention d'un entier aléatoire entre 0 et le nb total de lignes dans le dictionnaire
-    std::random_device generator;
-    std::uniform_int_distribution<int> distribution(0, nbOfWords);
-    int randInt = distribution(generator);
+    int randIntInDict = randInt(nbOfWords);
 
     // Récupération du mot correspondant à l'entier aléatoire (numéro de ligne du dictionnaire)
-    std::ifstream myDictionaryTxtFile("../assets/engmix.txt"); // PROBLEME : cette ligne ne devrait pas être répétée ici
     std::string line;
-    while(std::getline(myDictionaryTxtFile, line)){
+    while(std::getline(dictionaryTxtFile, line)){
         wordCount++;
-        if(wordCount == randInt){
+        if(wordCount == randIntInDict){
             std::string randomWord = line;
             return randomWord;
         }
@@ -48,7 +51,7 @@ std::string getRandomWordInDict(std::ifstream& dictionaryTxtFile, int nbOfWords)
 // Déroulement du jeu
 void hangmanGame(){
 
-    // Lecture du dictionnaire (ancienne version de l'ouverture : cf commit sur git)
+    // Lecture du dictionnaire
     std::ifstream myDictionaryTxtFile("../assets/engmix.txt");
 
     // Récupération du nb de mots dans le dictionnaire
@@ -74,12 +77,14 @@ void hangmanGame(){
     int nbOfLives = 11;
     char letter; // lettre entrée par le joueur à tester
     bool letterIsCorrect = false; // Booléen pour gérer une boucle du jeu
-    int gameResult = 0; // 0 : partie non terminée ; 1 : gagné ; 2 : perdu // tester un enum à la place
+
+    enum class GameState {Ongoing, Won, Lost};
+    GameState gameState = GameState::Ongoing; // état de la partie
     
     // BOUCLE PRINCIPALE DU JEU
     std::cout << "--- Hangman game ---" << std::endl;
 
-    while(gameResult == 0){
+    while(gameState == GameState::Ongoing){
         std::cout << std::endl << "You have " << nbOfLives << " lives" << std::endl;
 
         for(int i=0; i < nbOfLetters; i++){
@@ -118,17 +123,17 @@ void hangmanGame(){
 
         // Evaluation de l'état de la partie
         if(nbOfLives == 0){
-            gameResult = 2;
+            gameState = GameState::Lost;
         }
         else if(nbOfDiscoveredLetters == nbOfLetters){
-            gameResult = 1;
+            gameState = GameState::Won;
         }
     }
 
     // Résultat de la partie (et affichage du mot qu'il fallait trouver)
     std::cout << std::endl;
 
-    if(gameResult == 1){
+    if(gameState == GameState::Won){
         std::cout << "Congrats, you won!" << std::endl;
     }
     else{
