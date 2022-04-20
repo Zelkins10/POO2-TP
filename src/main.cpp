@@ -1,5 +1,6 @@
 #include "guessTheNumber.hpp"
 #include "hangman.hpp"
+#include "noughtsAndCrosses.hpp"
 #include <iostream>
 
 // includes pour [jeu suivant]
@@ -16,7 +17,7 @@ int main(){
     char selectedGame; // Le jeu que l'utilisateur va choisir
 
     std::cout << "What do you want to do?" << std::endl;
-    std::cout << "1: Play GUESS THE NUMBER" << std::endl << "2: Play HANGMAN" << std::endl;
+    std::cout << "1: Play GUESS THE NUMBER" << std::endl << "2: Play HANGMAN" << std::endl << "3: Play NOUGHTS AND CROSSES" << std::endl;
     std::cout << "q: Quit" << std::endl;
     std::cin >> selectedGame;
     std::cout << std::endl;
@@ -29,6 +30,9 @@ int main(){
         case '2':
             hangmanGame(); // HANGMAN
             break;
+
+        case '3':
+            noughtsAndCrossesGame(); // NOUGHTS AND CROSSES
 
         case 'q':
             break;
