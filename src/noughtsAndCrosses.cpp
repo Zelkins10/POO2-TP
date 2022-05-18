@@ -1,17 +1,49 @@
 #include <p6/p6.h>
+#include <optional>
 
 // void createContext(){
 
 // }
 
+struct CellCoordinates{
+    int x;
+    int y;
+};
+
+// Savoir quelle cellule est survolée par la souris
+std::optional<CellCoordinates> hoveredCell(int boardSize, glm::vec2 position){
+    const auto pos = p6::map(position, glm::vec2{-1.f}, glm::vec2{1.f}, glm::vec2{0.f}, glm::vec2{static_cast<float>(boardSize)});
+    const auto index = CellCoordinates{static_cast<int>(std::floor(pos.x)), static_cast<int>(std::floor(pos.y))};
+    
+    if(index.x >= 0 && index.x < boardSize && index.y >= 0 && index.y < boardSize){ // Si l'index est bien situé dans le board
+        return std::make_optional(index);
+    }
+    else{
+        return std::nullopt;
+    }
+}
+
+void draw_nought(p6::Context& ctx, int boardSize, CellCoordinates cellCoords){
+    ctx.circle(hoveredCell(boardSize, position), p6::Radius{0.3f});
+}
+
+void draw_cross(){
+
+}
+
 void draw_board(int size, p6::Context& ctx)
 {
     for(int i=0; i<size; i++){
         for(int j=0; j<size; j++){
-            ctx.square(p6::BottomLeftCorner{p6::map(i,0,2,0,720/3), p6::map(j,0,2,0,720/3)}, p6::Radius{720/3});
+            ctx.square(p6::BottomLeftCorner{p6::map(glm::vec2{static_cast<float>(i), static_cast<float>(j)},
+                                                    glm::vec2{0.f}, glm::vec2{static_cast<float>(size)},
+                                                    glm::vec2{-1.f}, glm::vec2{1.f})},
+                        p6::Radius{1.f / static_cast<float>(size)});
         }
     }
 }
+
+// avant dans boucle : ctx.square(p6::BottomLeftCorner{p6::map(i,0,2,0,720/3), p6::map(j,0,2,0,720/3)}, p6::Radius{720/3});
 
 void noughtsAndCrossesGame(){
     // Create the window
