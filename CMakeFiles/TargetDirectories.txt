@@ -1,3 +1,0 @@
-/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/CMakeFiles/rebuild_cache.dir
-/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/CMakeFiles/edit_cache.dir
-/mnt/d/Documents/Scolaire/IMAC/poo2/POO2-TP/CMakeFiles/POO2tp.dir
