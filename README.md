@@ -27,3 +27,61 @@ Alternatively you can just create a *build* folder at the root of this project, 
 ### Static analysis
 
 [Check this out](https://julesfouchy.github.io/Learn--Clean-Code-With-Cpp/lessons/static-analysis-and-sanitizers) to learn why you would want to use static analysis and how to do it.
+
+## Lessons read
+
+### ✅ Level 1
+
+### 🔳 Level 2
++ [X] Make it work, then make it good
++ [X] Prefer free functions
++ [X] Design cohesive classes
++ [ ] Use structs to group data
++ [ ] Write small functions
++ [X] DRY: Don't repeat yourself
++ [X] Enums
++ [X] Split problems in small pieces
++ [ ] Composition over Inheritance
+
+### 🔳 Level 3
++ [ ] std::vector
++ [ ] Minimize dependencies
++ [ ] Strong Types
++ [ ] Use libraries
++ [ ] Range-based for loop
++ [ ] Testing
++ [ ] Lambda functions
++ [ ] Master your IDE
++ [ ] std::optional
++ [ ] Single Source of Truth
++ [ ] Code reviews
++ [ ] const
++ [ ] Documentation
++ [ ] Don't overfocus on performance
++ [X] Git submodules
++ [ ] STL algorithms
++ [ ] assert
++ [ ] auto
++ [ ] Debug vs Release
++ [ ] Immediately Invoked Function
++ [ ] Markdown
++ [ ] Smart Pointers
++ [ ] std::function
++ [ ] Dependency Injection
++ [ ] Error Handling
++ [ ] Git Pull Requests
++ [ ] Advanced Git features
++ [X] CMake
++ [ ] Functional programming
++ [ ] Move semantics
++ [ ] The Rule of 5
++ [ ] State and Strategy
++ [ ] std::variant
++ [ ] Cache and Branches
++ [ ] Multithreading
++ [ ] Polymorphism
++ [ ] Space out your code
+
+### 🔳 Level 4
+
+### 🔳 Level 5
