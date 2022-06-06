@@ -21,5 +21,5 @@ target_sources(${PROJECT_NAME} PRIVATE ${MY_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE src)
 
 # Add the p6 library
-add_subdirectory(lib)
+add_subdirectory(p6)
 target_link_libraries(${PROJECT_NAME} PRIVATE p6::p6)

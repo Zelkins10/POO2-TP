@@ -32,16 +32,7 @@ Alternatively you can just create a *build* folder at the root of this project, 
 
 ### ✅ Level 1
 
-### 🔳 Level 2
-+ [X] Make it work, then make it good
-+ [X] Prefer free functions
-+ [X] Design cohesive classes
-+ [ ] Use structs to group data
-+ [ ] Write small functions
-+ [X] DRY: Don't repeat yourself
-+ [X] Enums
-+ [X] Split problems in small pieces
-+ [ ] Composition over Inheritance
+### ✅ Level 2
 
 ### 🔳 Level 3
 + [ ] std::vector
